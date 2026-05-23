@@ -1,1 +1,25 @@
-PLACEHOLDER
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Haptic Mouse Test</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; font-family: "Segoe UI", Arial, sans-serif; color: #172033; background: #f5f7fb; }
+    main { width: min(760px, calc(100vw - 32px)); padding: 24px; border: 1px solid #c9d3df; border-radius: 8px; background: white; }
+    h1 { margin: 0 0 12px; font-size: 24px; }
+    p { line-height: 1.5; color: #667085; }
+    a { display: inline-flex; align-items: center; min-height: 38px; padding: 0 14px; border-radius: 6px; color: white; background: #1f5fbf; text-decoration: none; }
+    code { background: #eef2f7; padding: 2px 5px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Haptic Mouse Test</h1>
+    <p>The current main browser tool is the interactive lesson lab. It includes Web Serial, haptic movement playback, left/right click motors, recording, screen capture, JSON export, and WebM playback.</p>
+    <p>Open it from the same local server:</p>
+    <p><a href="./interactive_lesson_lab.html">Open Interactive Lesson Lab</a></p>
+    <p>Run locally with <code>python -m http.server 8765</code> from the project root, then open <code>/tools/interactive_lesson_lab.html</code> in Chrome or Edge.</p>
+  </main>
+</body>
+</html>
