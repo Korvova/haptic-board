@@ -158,9 +158,14 @@ def mouse_proc(n_code, w_param, l_param):
 def install_mouse_hook():
     global hook_handle
     module_handle = kernel32.GetModuleHandleW(None)
+    ctypes.set_last_error(0)
     hook_handle = user32.SetWindowsHookExW(WH_MOUSE_LL, mouse_proc, module_handle, 0)
+    first_error = ctypes.get_last_error()
     if not hook_handle:
-        raise ctypes.WinError(ctypes.get_last_error())
+        ctypes.set_last_error(0)
+        hook_handle = user32.SetWindowsHookExW(WH_MOUSE_LL, mouse_proc, None, 0)
+    if not hook_handle:
+        raise ctypes.WinError(ctypes.get_last_error() or first_error)
 
     msg = ctypes.wintypes.MSG()
     while user32.GetMessageW(ctypes.byref(msg), None, 0, 0) != 0:
